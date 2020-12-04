@@ -35,5 +35,27 @@ def getPaths(row, column):
         nPaths += getPaths(row, column+1)
     return nPaths
 
-print(getPaths(0, 0))
-print(getPaths(grids-1, grids-1))
+def printBoard():
+    for i in range(grids):
+        for j in range(grids):
+            if (i, j) in invalid:
+                print('[X]', end='')
+            else:
+                print('[ ]', end='')
+        print('')
+
+def title(string):
+    print(string)
+    print(len(string) * '-')
+
+title('Primeiro Caso:')
+
+[m, n] = [grids-2, grids-2]
+
+print(getPaths(m, n))
+
+title('Segundo Caso:')
+
+[m, n] = [0, 0]
+
+print(getPaths(m, n))
